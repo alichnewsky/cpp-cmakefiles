@@ -61,8 +61,13 @@ ExternalProject_Add(
         "${GOOGLEAPIS_CPP_SOURCE}/google/api/http.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/api/annotations.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/api/auth.proto"
+        "${GOOGLEAPIS_CPP_SOURCE}/google/api/label.proto"
+        "${GOOGLEAPIS_CPP_SOURCE}/google/api/launch_stage.proto"
+        "${GOOGLEAPIS_CPP_SOURCE}/google/api/monitored_resource.proto"
+        "${GOOGLEAPIS_CPP_SOURCE}/google/api/monitored_resource.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/api/resource.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/type/expr.proto"
+        "${GOOGLEAPIS_CPP_SOURCE}/google/type/latlng.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/rpc/error_details.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/rpc/status.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/iam/v1/policy.proto"
@@ -84,6 +89,44 @@ ExternalProject_Add(
         "${GOOGLEAPIS_CPP_SOURCE}/google/spanner/v1/spanner.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/spanner/v1/transaction.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/spanner/v1/type.proto"
+
+        "${GOOGLEAPIS_CPP_SOURCE}/google/datastore/v1/datastore.proto" 
+        "${GOOGLEAPIS_CPP_SOURCE}/google/datastore/v1/entity.proto" 
+        "${GOOGLEAPIS_CPP_SOURCE}/google/datastore/v1/query.proto" 
+
+        "${GOOGLEAPIS_CPP_SOURCE}/google/devtools/cloudtracoe/v2/trace.proto" 
+        "${GOOGLEAPIS_CPP_SOURCE}/google/devtools/cloudtrace/v2/tracing.proto" 
+
+        "${GOOGLEAPIS_CPP_SOURCE}/google/devtools/clouderrorreporting/v1beta1/common.proto" 
+        "${GOOGLEAPIS_CPP_SOURCE}/google/devtools/clouderrorreporting/v1beta1/error_group_service.proto" 
+        "${GOOGLEAPIS_CPP_SOURCE}/google/devtools/clouderrorreporting/v1beta1/report_errors_service.proto" 
+
+        "${GOOGLEAPIS_CPP_SOURCE}/google/logging/type/http_request.proto" 
+        "${GOOGLEAPIS_CPP_SOURCE}/google/logging/type/log_severity.proto" 
+        "${GOOGLEAPIS_CPP_SOURCE}/google/logging/v2/log_entry.proto" 
+        "${GOOGLEAPIS_CPP_SOURCE}/google/logging/v2/logging.proto"
+        "${GOOGLEAPIS_CPP_SOURCE}/google/logging/v2/logging_config.proto" 
+        "${GOOGLEAPIS_CPP_SOURCE}/google/logging/v2/logging_metrics.proto"
+
+	"${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/alert.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/alert_service.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/common.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/dropped_labels.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/group.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/group_service.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/metric.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/metric_service.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/mutation_record.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/notification.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/notification_service.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/span_context.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/uptime.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/uptime_service.proto"
+
+	"${GOOGLEAPIS_CPP_SOURCE}/google/pubsub/v1/pubsub.proto"
+
+	"${GOOGLEAPIS_CPP_SOURCE}/google/watcher/v1/watch.proto"
+
     LOG_DOWNLOAD OFF)
 
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
@@ -156,6 +199,70 @@ google_cloud_cpp_grpcpp_library(
     "${PROTO_INCLUDE_DIR}")
 googleapis_cpp_set_version_and_alias(api_resource_protos)
 target_link_libraries(googleapis_cpp_api_resource_protos
+                      PRIVATE googleapis_cpp_common_flags)
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_api_distribution_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/api/distribution.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")
+googleapis_cpp_set_version_and_alias(api_distribution_protos)
+target_link_libraries(googleapis_cpp_api_distribution_protos
+                      PRIVATE googleapis_cpp_common_flags)
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_api_label_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/api/label.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")
+googleapis_cpp_set_version_and_alias(api_label_protos)
+target_link_libraries(googleapis_cpp_api_label_protos
+                      PRIVATE googleapis_cpp_common_flags)
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_api_launch_stage_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/api/launch_stage.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")
+googleapis_cpp_set_version_and_alias(api_launch_stage_protos)
+target_link_libraries(googleapis_cpp_api_launch_stage_protos
+                      PRIVATE googleapis_cpp_common_flags)
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_api_metric_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/api/metric.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")
+googleapis_cpp_set_version_and_alias(api_metric_protos)
+target_link_libraries(googleapis_cpp_api_metric_protos
+                      PUBLIC  googleapis-c++::api_label_protos
+		              googleapis-c++::api_launch_stage_protos
+                      PRIVATE googleapis_cpp_common_flags)
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_api_monitored_resource_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/api/monitored_resource.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")
+googleapis_cpp_set_version_and_alias(api_monitored_resource_protos)
+target_link_libraries(googleapis_cpp_api_monitored_resource_protos
+                      PUBLIC  googleapis-c++::api_label_protos
+		              googleapis-c++::api_launch_stage_protos
+                      PRIVATE googleapis_cpp_common_flags)
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_type_latlng_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/type/latlng.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")
+googleapis_cpp_set_version_and_alias(type_latlng_protos)
+target_link_libraries(googleapis_cpp_type_latlng_protos
                       PRIVATE googleapis_cpp_common_flags)
 
 google_cloud_cpp_grpcpp_library(
@@ -269,6 +376,120 @@ target_link_libraries(googleapis_cpp_spanner_protos
                              googleapis-c++::iam_v1_iam_policy_protos
                       PRIVATE googleapis_cpp_common_flags)
 
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_datastore_v1_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/datastore/v1/datastore.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/datastore/v1/entity.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/datastore/v1/query.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(datastore_v1_protos)
+target_link_libraries(googleapis_cpp_datastore_v1_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+                      PUBLIC googleapis-c++::type_latlng_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_devtools_clouderrorreporting_v1beta1_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/devtools/clouderrorreporting/v1beta1/common.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/devtools/clouderrorreporting/v1beta1/error_group_service.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/devtools/clouderrorreporting/v1beta1/report_errors_service.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(devtools_clouderrorreporting_v1beta1_protos)
+target_link_libraries(googleapis_cpp_devtools_clouderrorreporting_v1beta1_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+                             googleapis-c++::api_monitored_resource_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_devtools_cloudtrace_v2_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/devtools/cloudtrace/v2/trace.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/devtools/cloudtrace/v2/tracing.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(devtools_cloudtrace_v2_protos)
+target_link_libraries(googleapis_cpp_devtools_cloudtrace_v2_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_logging_v2_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/logging/type/http_request.proto" 
+    "${GOOGLEAPIS_CPP_SOURCE}/google/logging/type/log_severity.proto" 
+    "${GOOGLEAPIS_CPP_SOURCE}/google/logging/v2/log_entry.proto" 
+    "${GOOGLEAPIS_CPP_SOURCE}/google/logging/v2/logging.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/logging/v2/logging_config.proto" 
+    "${GOOGLEAPIS_CPP_SOURCE}/google/logging/v2/logging_metrics.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(logging_v2_protos)
+target_link_libraries(googleapis_cpp_logging_v2_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+                             googleapis-c++::api_monitored_resource_protos
+                             googleapis-c++::longrunning_operations_protos
+                             googleapis-c++::rpc_status_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+google_cloud_cpp_grpcpp_library( 
+  googleapis_cpp_monitoring_v3_protos
+  "${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/alert.proto"
+  "${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/alert_service.proto"
+  "${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/common.proto"
+  "${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/dropped_labels.proto"
+  "${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/group.proto"
+  "${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/group_service.proto"
+  "${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/metric.proto"
+  "${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/metric_service.proto"
+  "${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/mutation_record.proto"
+  "${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/notification.proto"
+  "${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/notification_service.proto"
+  "${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/span_context.proto"
+  "${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/uptime.proto"
+  "${GOOGLEAPIS_CPP_SOURCE}/google/monitoring/v3/uptime_service.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(monitoring_v3_protos)
+target_link_libraries(googleapis_cpp_monitoring_v3_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+                             googleapis-c++::api_distribution_protos
+                             googleapis-c++::api_metric_protos
+			     googleapis-c++::api_monitored_resource_protos
+                             googleapis-c++::longrunning_operations_protos
+                             googleapis-c++::rpc_status_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+google_cloud_cpp_grpcpp_library( 
+  googleapis_cpp_pubsub_v1_protos
+  "${GOOGLEAPIS_CPP_SOURCE}/google/pubsub/v1/pubsub.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(pubsub_v1_protos)
+target_link_libraries(googleapis_cpp_pubsub_v1_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+                             googleapis-c++::api_resource_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+google_cloud_cpp_grpcpp_library( 
+  googleapis_cpp_watcher_v1_protos
+  "${GOOGLEAPIS_CPP_SOURCE}/google/watcher/v1/watch.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(watcher_v1_protos)
+target_link_libraries(googleapis_cpp_watcher_v1_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+		      PRIVATE googleapis_cpp_common_flags )
+  
 # Install the libraries and headers in the locations determined by
 # GNUInstallDirs
 include(GNUInstallDirs)
@@ -277,15 +498,29 @@ set(googleapis_cpp_installed_libraries_list
     googleapis_cpp_bigtable_protos
     googleapis_cpp_spanner_protos
     googleapis_cpp_longrunning_operations_protos
+    googleapis_cpp_datastore_v1_protos
+    googleapis_cpp_devtools_clouderrorreporting_v1beta1_protos
+    googleapis_cpp_devtools_cloudtrace_v2_protos
+    googleapis_cpp_logging_v2_protos
+    googleapis_cpp_monitoring_v3_protos
+    googleapis_cpp_pubsub_v1_protos
+    googleapis_cpp_watcher_v1_protos
     googleapis_cpp_api_http_protos
     googleapis_cpp_api_annotations_protos
     googleapis_cpp_api_auth_protos
+    googleapis_cpp_api_distribution_protos
+    googleapis_cpp_api_label_protos
+    googleapis_cpp_api_launch_stage_protos
+    googleapis_cpp_api_metric_protos
+    googleapis_cpp_api_monitored_resource_protos
     googleapis_cpp_api_resource_protos
     googleapis_cpp_iam_v1_policy_protos
     googleapis_cpp_iam_v1_iam_policy_protos
     googleapis_cpp_rpc_error_details_protos
     googleapis_cpp_rpc_status_protos
-    googleapis_cpp_type_expr_protos)
+    googleapis_cpp_type_expr_protos
+    googleapis_cpp_type_latlng_protos
+)
 
 install(TARGETS ${googleapis_cpp_installed_libraries_list}
                 googleapis_cpp_common_flags
@@ -365,15 +600,30 @@ set(GOOGLE_CLOUD_CPP_PC_DESCRIPTION
 # Note the use of spaces, `string(JOIN)` is not available in cmake-3.5, so we
 # need to add the separator ourselves.
 string(CONCAT GOOGLE_CLOUD_CPP_PC_REQUIRES
-              "googleapis_cpp_bigtable_protos"
+	      " googleapis_cpp_api_http_protos"
+	      " googleapis_cpp_api_annotations_protos"
+	      " googleapis_cpp_api_auth_protos"
+	      " googleapis_cpp_api_distribution_protos"
+	      " googleapis_cpp_api_label_protos"
+	      " googleapis_cpp_api_launch_stage_protos"
+	      " googleapis_cpp_api_metric_protos"
+	      " googleapis_cpp_api_monitored_resource_protos"
+	      " googleapis_cpp_api_resource_protos"
+              " googleapis_cpp_bigtable_protos"
+	      " googleapis_cpp_datastore_v1_protos"
+	      " googleapis_cpp_devtools_clouderrorreporting_v1beta1_protos"
+	      " googleapis_cpp_devtools_cloudtrace_v2_protos"
               " googleapis_cpp_iam_v1_iam_policy_protos"
               " googleapis_cpp_iam_v1_policy_protos"
+	      " googleapis_cpp_logging_v2_protos"
               " googleapis_cpp_longrunning_operations_protos"
-              " googleapis_cpp_api_auth_protos"
-              " googleapis_cpp_api_annotations_protos"
-              " googleapis_cpp_api_http_protos"
+	      " googleapis_cpp_monitoring_v3_protos"
+	      " googleapis_cpp_pubsub_v1_protos"
               " googleapis_cpp_rpc_status_protos"
               " googleapis_cpp_rpc_error_details_protos"
+              " googleapis_cpp_type_expr_protos"
+              " googleapis_cpp_type_latlng_protos"
+	      " googleapis_cpp_watcher_v1_protos"
               " grpc++"
               " grpc"
               " openssl"
@@ -395,3 +645,4 @@ install(FILES "${CMAKE_CURRENT_BINARY_DIR}/googleapis-config.cmake"
               "${PROJECT_SOURCE_DIR}/cmake/FindProtobufTargets.cmake"
               "${PROJECT_SOURCE_DIR}/cmake/CompileProtos.cmake"
         DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/googleapis")
+
