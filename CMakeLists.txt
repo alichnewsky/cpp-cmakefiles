@@ -58,21 +58,31 @@ ExternalProject_Add(
     BUILD_COMMAND ""
     INSTALL_COMMAND ""
     BUILD_BYPRODUCTS
-        "${GOOGLEAPIS_CPP_SOURCE}/google/api/http.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/api/annotations.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/api/auth.proto"
+        "${GOOGLEAPIS_CPP_SOURCE}/google/api/client.proto"
+        "${GOOGLEAPIS_CPP_SOURCE}/google/api/field_behavior.proto"
+        "${GOOGLEAPIS_CPP_SOURCE}/google/api/http.proto"
+        "${GOOGLEAPIS_CPP_SOURCE}/google/api/httpbody.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/api/label.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/api/launch_stage.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/api/monitored_resource.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/api/monitored_resource.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/api/resource.proto"
+
+        "${GOOGLEAPIS_CPP_SOURCE}/google/type/color.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/type/expr.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/type/latlng.proto"
+
+        "${GOOGLEAPIS_CPP_SOURCE}/google/rpc/code.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/rpc/error_details.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/rpc/status.proto"
+
         "${GOOGLEAPIS_CPP_SOURCE}/google/iam/v1/policy.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/iam/v1/iam_policy.proto"
+
         "${GOOGLEAPIS_CPP_SOURCE}/google/longrunning/operations.proto"
+	
         "${GOOGLEAPIS_CPP_SOURCE}/google/bigtable/admin/v2/bigtable_instance_admin.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/bigtable/admin/v2/bigtable_table_admin.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/bigtable/admin/v2/common.proto"
@@ -80,6 +90,7 @@ ExternalProject_Add(
         "${GOOGLEAPIS_CPP_SOURCE}/google/bigtable/admin/v2/table.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/bigtable/v2/bigtable.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/bigtable/v2/data.proto"
+
         "${GOOGLEAPIS_CPP_SOURCE}/google/spanner/admin/database/v1/spanner_database_admin.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/spanner/admin/instance/v1/spanner_instance_admin.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/spanner/v1/keys.proto"
@@ -90,11 +101,99 @@ ExternalProject_Add(
         "${GOOGLEAPIS_CPP_SOURCE}/google/spanner/v1/transaction.proto"
         "${GOOGLEAPIS_CPP_SOURCE}/google/spanner/v1/type.proto"
 
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/audit/audit_log.proto"
+
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/annotation_payload.proto"
+#	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/annotation_spec.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/classification.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/column_spec.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/data_items.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/data_stats.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/data_types.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/dataset.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/detection.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/geometry.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/image.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/io.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/model.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/model_evaluation.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/operations.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/prediction_service.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/ranges.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/regression.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/service.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/table_spec.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/tables.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/temporal.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/text.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/text_extraction.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/text_segment.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/text_sentiment.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/translation.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/video.proto"
+
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/bigquery/v2/model.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/bigquery/v2/model_reference.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/bigquery/v2/standard_sql.proto"
+
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/datalabeling/v1beta1/annotation.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/datalabeling/v1beta1/annotation_spec_set.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/datalabeling/v1beta1/data_labeling_service.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/datalabeling/v1beta1/dataset.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/datalabeling/v1beta1/human_annotation_config.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/datalabeling/v1beta1/instruction.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/datalabeling/v1beta1/operations.proto"
+
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/kms/v1/resources.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/kms/v1/service.proto"
+
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/language/v1/language_service.proto"
+
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/location/locations.proto"
+
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/ml/v1/job_service.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/ml/v1/model_service.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/ml/v1/operation_metadata.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/ml/v1/prediction_service.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/ml/v1/project_service.proto"
+
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/oslogin/common/common.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/oslogin/v1/oslogin.proto"
+
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/redis/v1/cloud_redis.proto"
+
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/runtimeconfig/v1beta1/resources.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/runtimeconfig/v1beta1/runtimeconfig.proto"
+
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/scheduler/v1/cloudscheduler.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/scheduler/v1/job.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/scheduler/v1/target.proto"
+
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/speech/v1/cloud_speech.proto"
+
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/tasks/v2/cloudtasks.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/tasks/v2/queue.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/tasks/v2/target.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/tasks/v2/task.proto"
+
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/texttospeech/v1/cloud_tts.proto"
+
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/translate/v3beta1/translation_service.proto"
+
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/videointelligence/v1/video_intelligence.proto"
+
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/vision/v1/geometry.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/vision/v1/image_annotator.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/vision/v1/product_search.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/vision/v1/product_search_service.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/vision/v1/text_annotation.proto"
+	"${GOOGLEAPIS_CPP_SOURCE}/google/cloud/vision/v1/web_detection.proto"
+
         "${GOOGLEAPIS_CPP_SOURCE}/google/datastore/v1/datastore.proto" 
         "${GOOGLEAPIS_CPP_SOURCE}/google/datastore/v1/entity.proto" 
         "${GOOGLEAPIS_CPP_SOURCE}/google/datastore/v1/query.proto" 
 
-        "${GOOGLEAPIS_CPP_SOURCE}/google/devtools/cloudtracoe/v2/trace.proto" 
+        "${GOOGLEAPIS_CPP_SOURCE}/google/devtools/cloudtrace/v2/trace.proto" 
         "${GOOGLEAPIS_CPP_SOURCE}/google/devtools/cloudtrace/v2/tracing.proto" 
 
         "${GOOGLEAPIS_CPP_SOURCE}/google/devtools/clouderrorreporting/v1beta1/common.proto" 
@@ -191,6 +290,15 @@ target_link_libraries(googleapis_cpp_api_auth_protos
                       PUBLIC googleapis-c++::api_annotations_protos
                       PRIVATE googleapis_cpp_common_flags)
 
+google_cloud_cpp_grpcpp_library(googleapis_cpp_api_client_protos
+                                "${GOOGLEAPIS_CPP_SOURCE}/google/api/client.proto"
+                                PROTO_PATH_DIRECTORIES
+                                "${GOOGLEAPIS_CPP_SOURCE}"
+                                "${PROTO_INCLUDE_DIR}")
+googleapis_cpp_set_version_and_alias(api_client_protos)
+target_link_libraries(googleapis_cpp_api_client_protos
+                      PRIVATE googleapis_cpp_common_flags)
+
 google_cloud_cpp_grpcpp_library(
     googleapis_cpp_api_resource_protos
     "${GOOGLEAPIS_CPP_SOURCE}/google/api/resource.proto"
@@ -201,6 +309,8 @@ googleapis_cpp_set_version_and_alias(api_resource_protos)
 target_link_libraries(googleapis_cpp_api_resource_protos
                       PRIVATE googleapis_cpp_common_flags)
 
+# AL : added for additional cloud APIs
+
 google_cloud_cpp_grpcpp_library(
     googleapis_cpp_api_distribution_protos
     "${GOOGLEAPIS_CPP_SOURCE}/google/api/distribution.proto"
@@ -209,6 +319,24 @@ google_cloud_cpp_grpcpp_library(
     "${PROTO_INCLUDE_DIR}")
 googleapis_cpp_set_version_and_alias(api_distribution_protos)
 target_link_libraries(googleapis_cpp_api_distribution_protos
+                      PRIVATE googleapis_cpp_common_flags)
+
+google_cloud_cpp_grpcpp_library(googleapis_cpp_api_field_behavior_protos
+                                "${GOOGLEAPIS_CPP_SOURCE}/google/api/field_behavior.proto"
+                                PROTO_PATH_DIRECTORIES
+                                "${GOOGLEAPIS_CPP_SOURCE}"
+                                "${PROTO_INCLUDE_DIR}")
+googleapis_cpp_set_version_and_alias(api_field_behavior_protos)
+target_link_libraries(googleapis_cpp_api_field_behavior_protos
+                      PRIVATE googleapis_cpp_common_flags)
+
+google_cloud_cpp_grpcpp_library(googleapis_cpp_api_httpbody_protos
+                                "${GOOGLEAPIS_CPP_SOURCE}/google/api/httpbody.proto"
+                                PROTO_PATH_DIRECTORIES
+                                "${GOOGLEAPIS_CPP_SOURCE}"
+                                "${PROTO_INCLUDE_DIR}")
+googleapis_cpp_set_version_and_alias(api_httpbody_protos)
+target_link_libraries(googleapis_cpp_api_httpbody_protos
                       PRIVATE googleapis_cpp_common_flags)
 
 google_cloud_cpp_grpcpp_library(
@@ -266,6 +394,17 @@ target_link_libraries(googleapis_cpp_type_latlng_protos
                       PRIVATE googleapis_cpp_common_flags)
 
 google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_type_color_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/type/color.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")
+googleapis_cpp_set_version_and_alias(type_color_protos)
+target_link_libraries(googleapis_cpp_type_color_protos
+                      PRIVATE googleapis_cpp_common_flags)
+
+# 
+google_cloud_cpp_grpcpp_library(
     googleapis_cpp_type_expr_protos
     "${GOOGLEAPIS_CPP_SOURCE}/google/type/expr.proto"
     PROTO_PATH_DIRECTORIES
@@ -273,6 +412,16 @@ google_cloud_cpp_grpcpp_library(
     "${PROTO_INCLUDE_DIR}")
 googleapis_cpp_set_version_and_alias(type_expr_protos)
 target_link_libraries(googleapis_cpp_type_expr_protos
+                      PRIVATE googleapis_cpp_common_flags)
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_rpc_code_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/rpc/code.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")
+googleapis_cpp_set_version_and_alias(rpc_code_protos)
+target_link_libraries(googleapis_cpp_rpc_code_protos
                       PRIVATE googleapis_cpp_common_flags)
 
 google_cloud_cpp_grpcpp_library(
@@ -375,6 +524,296 @@ target_link_libraries(googleapis_cpp_spanner_protos
                              googleapis-c++::rpc_status_protos
                              googleapis-c++::iam_v1_iam_policy_protos
                       PRIVATE googleapis_cpp_common_flags)
+
+# Anthony Lichnewsky : added more libraries for SLB use...
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_cloud_audit_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/audit/audit_log.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(cloud_audit_protos)
+target_link_libraries(googleapis_cpp_cloud_audit_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_cloud_automl_v1beta1_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/annotation_payload.proto"
+#    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/annotation_spec.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/classification.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/column_spec.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/data_items.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/data_stats.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/data_types.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/dataset.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/detection.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/geometry.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/image.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/io.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/model.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/model_evaluation.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/operations.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/prediction_service.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/ranges.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/regression.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/service.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/table_spec.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/tables.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/temporal.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/text.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/text_extraction.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/text_segment.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/text_sentiment.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/translation.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/automl/v1beta1/video.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(cloud_audit_protos)
+target_link_libraries(googleapis_cpp_cloud_audit_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+		             googleapis-c++::api_client_protos
+		             googleapis-c++::longrunning_operations_protos
+		             googleapis-c++::rpc_status_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_cloud_bigquery_v2_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/bigquery/v2/model.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/bigquery/v2/model_reference.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/bigquery/v2/standard_sql.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(cloud_bigquery_v2_protos)
+target_link_libraries(googleapis_cpp_cloud_bigquery_v2_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+                             googleapis-c++::api_client_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_cloud_datalabeling_v1beta1_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/datalabeling/v1beta1/annotation.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/datalabeling/v1beta1/annotation_spec_set.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/datalabeling/v1beta1/data_labeling_service.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/datalabeling/v1beta1/dataset.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/datalabeling/v1beta1/human_annotation_config.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/datalabeling/v1beta1/instruction.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/datalabeling/v1beta1/operations.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(cloud_datalabeling_v1beta1_protos)
+target_link_libraries(googleapis_cpp_cloud_datalabeling_v1beta1_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+                             googleapis-c++::api_client_protos
+                             googleapis-c++::longrunning_operations_protos
+                             googleapis-c++::rpc_status_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_cloud_kms_v1_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/kms/v1/resources.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/kms/v1/service.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(cloud_kms_v1_protos)
+target_link_libraries(googleapis_cpp_cloud_kms_v1_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+		             googleapis-c++::api_client_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_cloud_language_v1_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/language/v1/language_service.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(cloud_language_v1_protos)
+target_link_libraries(googleapis_cpp_cloud_language_v1_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+                             googleapis-c++::api_client_protos
+                             googleapis-c++::api_field_behavior_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_cloud_location_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/location/locations.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(cloud_location_protos)
+target_link_libraries(googleapis_cpp_cloud_location_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_cloud_ml_v1_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/ml/v1/job_service.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/ml/v1/model_service.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/ml/v1/operation_metadata.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/ml/v1/prediction_service.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/ml/v1/project_service.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(cloud_ml_v1_protos)
+target_link_libraries(googleapis_cpp_cloud_ml_v1_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+                             googleapis-c++::api_auth_protos
+                             googleapis-c++::api_httpbody_protos
+                             googleapis-c++::longrunning_operations_protos		      
+		      PRIVATE googleapis_cpp_common_flags )
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_cloud_oslogin_v1_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/oslogin/common/common.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/oslogin/v1/oslogin.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(cloud_oslogin_v1_protos)
+target_link_libraries(googleapis_cpp_cloud_oslogin_v1_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_cloud_redis_v1_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/redis/v1/cloud_redis.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(cloud_redis_v1_protos)
+target_link_libraries(googleapis_cpp_cloud_redis_v1_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+		             googleapis-c++::api_client_protos
+		             googleapis-c++::longrunning_operations_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_cloud_runtimeconfig_v1beta1_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/runtimeconfig/v1beta1/resources.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/runtimeconfig/v1beta1/runtimeconfig.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(cloud_runtimeconfig_v1beta1_protos)
+target_link_libraries(googleapis_cpp_cloud_runtimeconfig_v1beta1_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+		             googleapis-c++::longrunning_operations_protos
+		             googleapis-c++::rpc_status_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_cloud_scheduler_v1_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/scheduler/v1/cloudscheduler.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/scheduler/v1/job.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/scheduler/v1/target.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(cloud_scheduler_v1_protos)
+target_link_libraries(googleapis_cpp_cloud_scheduler_v1_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+		             googleapis-c++::api_resource_protos
+			     googleapis-c++::rpc_status_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_cloud_speech_v1_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/speech/v1/cloud_speech.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(cloud_speech_v1_protos)
+target_link_libraries(googleapis_cpp_cloud_speech_v1_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+		             googleapis-c++::longrunning_operations_protos
+			     googleapis-c++::rpc_status_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_cloud_tasks_v2_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/tasks/v2/cloudtasks.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/tasks/v2/queue.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/tasks/v2/target.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/tasks/v2/task.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(cloud_tasks_v2_protos)
+target_link_libraries(googleapis_cpp_cloud_tasks_v2_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+		             googleapis-c++::api_resource_protos
+		             googleapis-c++::iam_v1_iam_policy_protos
+		             googleapis-c++::iam_v1_policy_protos
+			     googleapis-c++::rpc_code_protos
+			     googleapis-c++::rpc_status_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_cloud_texttospeech_v1_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/texttospeech/v1/cloud_tts.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(cloud_texttospeech_v1_protos)
+target_link_libraries(googleapis_cpp_cloud_texttospeech_v1_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_cloud_translate_v3beta1_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/translate/v3beta1/translation_service.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(cloud_translate_v3beta1_protos)
+target_link_libraries(googleapis_cpp_cloud_translate_v3beta1_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+		             googleapis-c++::api_client_protos
+		             googleapis-c++::api_resource_protos
+		             googleapis-c++::longrunning_operations_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_cloud_videointelligence_v1_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/videointelligence/v1/video_intelligence.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(cloud_videointelligence_v1_protos)
+target_link_libraries(googleapis_cpp_cloud_videointelligence_v1_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+		             googleapis-c++::api_client_protos
+		             googleapis-c++::longrunning_operations_protos
+		             googleapis-c++::rpc_status_protos
+		      PRIVATE googleapis_cpp_common_flags )
+
+google_cloud_cpp_grpcpp_library(
+    googleapis_cpp_cloud_vision_v1_protos
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/vision/v1/geometry.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/vision/v1/image_annotator.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/vision/v1/product_search.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/vision/v1/product_search_service.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/vision/v1/text_annotation.proto"
+    "${GOOGLEAPIS_CPP_SOURCE}/google/cloud/vision/v1/web_detection.proto"
+    PROTO_PATH_DIRECTORIES
+    "${GOOGLEAPIS_CPP_SOURCE}"
+    "${PROTO_INCLUDE_DIR}")  
+googleapis_cpp_set_version_and_alias(cloud_vision_v1_protos)
+target_link_libraries(googleapis_cpp_cloud_vision_v1_protos
+                      PUBLIC googleapis-c++::api_annotations_protos
+		             googleapis-c++::api_client_protos
+		             googleapis-c++::longrunning_operations_protos
+		             googleapis-c++::rpc_status_protos
+			     googleapis-c++::type_color_protos
+			     googleapis-c++::type_latlng_protos
+		      PRIVATE googleapis_cpp_common_flags )
 
 google_cloud_cpp_grpcpp_library(
     googleapis_cpp_datastore_v1_protos
@@ -490,36 +929,62 @@ target_link_libraries(googleapis_cpp_watcher_v1_protos
                       PUBLIC googleapis-c++::api_annotations_protos
 		      PRIVATE googleapis_cpp_common_flags )
   
+# FIXME : DATASTORE API vs FIRESTORE API ...
+# FIXME : cloudtrace, ... for rest of stackdriver
+
 # Install the libraries and headers in the locations determined by
 # GNUInstallDirs
 include(GNUInstallDirs)
 
 set(googleapis_cpp_installed_libraries_list
-    googleapis_cpp_bigtable_protos
-    googleapis_cpp_spanner_protos
-    googleapis_cpp_longrunning_operations_protos
-    googleapis_cpp_datastore_v1_protos
-    googleapis_cpp_devtools_clouderrorreporting_v1beta1_protos
-    googleapis_cpp_devtools_cloudtrace_v2_protos
-    googleapis_cpp_logging_v2_protos
-    googleapis_cpp_monitoring_v3_protos
-    googleapis_cpp_pubsub_v1_protos
-    googleapis_cpp_watcher_v1_protos
-    googleapis_cpp_api_http_protos
     googleapis_cpp_api_annotations_protos
     googleapis_cpp_api_auth_protos
+    googleapis_cpp_api_client_protos
     googleapis_cpp_api_distribution_protos
+    googleapis_cpp_api_field_behavior_protos
+    googleapis_cpp_api_http_protos
+    googleapis_cpp_api_httpbody_protos
     googleapis_cpp_api_label_protos
     googleapis_cpp_api_launch_stage_protos
     googleapis_cpp_api_metric_protos
     googleapis_cpp_api_monitored_resource_protos
     googleapis_cpp_api_resource_protos
+    googleapis_cpp_bigtable_protos
+    googleapis_cpp_cloud_audit_protos
+    googleapis_cpp_cloud_automl_v1beta1_protos
+    googleapis_cpp_cloud_bigquery_v2_protos
+    googleapis_cpp_cloud_datalabeling_v1beta1_protos
+    googleapis_cpp_cloud_kms_v1_protos
+    googleapis_cpp_cloud_language_v1_protos
+    googleapis_cpp_cloud_location_protos
+    googleapis_cpp_cloud_ml_v1_protos
+    googleapis_cpp_cloud_oslogin_v1_protos
+    googleapis_cpp_cloud_redis_v1_protos
+    googleapis_cpp_cloud_runtimeconfig_v1beta1_protos
+    googleapis_cpp_cloud_scheduler_v1_protos
+    googleapis_cpp_cloud_speech_v1_protos
+    googleapis_cpp_cloud_tasks_v2_protos
+    googleapis_cpp_cloud_texttospeech_v1_protos
+    googleapis_cpp_cloud_translate_v3beta1_protos
+    googleapis_cpp_cloud_videointelligence_v1_protos
+    googleapis_cpp_cloud_vision_v1_protos
+    googleapis_cpp_datastore_v1_protos
+    googleapis_cpp_devtools_clouderrorreporting_v1beta1_protos
+    googleapis_cpp_devtools_cloudtrace_v2_protos
     googleapis_cpp_iam_v1_policy_protos
     googleapis_cpp_iam_v1_iam_policy_protos
+    googleapis_cpp_logging_v2_protos
+    googleapis_cpp_longrunning_operations_protos
+    googleapis_cpp_monitoring_v3_protos
+    googleapis_cpp_pubsub_v1_protos
+    googleapis_cpp_rpc_code_protos
     googleapis_cpp_rpc_error_details_protos
     googleapis_cpp_rpc_status_protos
+    googleapis_cpp_spanner_protos
+    googleapis_cpp_type_color_protos
     googleapis_cpp_type_expr_protos
     googleapis_cpp_type_latlng_protos
+    googleapis_cpp_watcher_v1_protos
 )
 
 install(TARGETS ${googleapis_cpp_installed_libraries_list}
@@ -600,36 +1065,61 @@ set(GOOGLE_CLOUD_CPP_PC_DESCRIPTION
 # Note the use of spaces, `string(JOIN)` is not available in cmake-3.5, so we
 # need to add the separator ourselves.
 string(CONCAT GOOGLE_CLOUD_CPP_PC_REQUIRES
-	      " googleapis_cpp_api_http_protos"
-	      " googleapis_cpp_api_annotations_protos"
-	      " googleapis_cpp_api_auth_protos"
-	      " googleapis_cpp_api_distribution_protos"
-	      " googleapis_cpp_api_label_protos"
-	      " googleapis_cpp_api_launch_stage_protos"
-	      " googleapis_cpp_api_metric_protos"
-	      " googleapis_cpp_api_monitored_resource_protos"
-	      " googleapis_cpp_api_resource_protos"
-              " googleapis_cpp_bigtable_protos"
-	      " googleapis_cpp_datastore_v1_protos"
-	      " googleapis_cpp_devtools_clouderrorreporting_v1beta1_protos"
-	      " googleapis_cpp_devtools_cloudtrace_v2_protos"
-              " googleapis_cpp_iam_v1_iam_policy_protos"
-              " googleapis_cpp_iam_v1_policy_protos"
-	      " googleapis_cpp_logging_v2_protos"
-              " googleapis_cpp_longrunning_operations_protos"
-	      " googleapis_cpp_monitoring_v3_protos"
-	      " googleapis_cpp_pubsub_v1_protos"
-              " googleapis_cpp_rpc_status_protos"
-              " googleapis_cpp_rpc_error_details_protos"
-              " googleapis_cpp_type_expr_protos"
-              " googleapis_cpp_type_latlng_protos"
-	      " googleapis_cpp_watcher_v1_protos"
-              " grpc++"
-              " grpc"
-              " openssl"
-              " protobuf"
-              " zlib"
-              " libcares")
+    "googleapis_cpp_api_annotations_protos"
+    " googleapis_cpp_api_auth_protos"
+    " googleapis_cpp_api_client_protos"
+    " googleapis_cpp_api_distribution_protos"
+    " googleapis_cpp_api_field_behavior_protos"
+    " googleapis_cpp_api_http_protos"
+    " googleapis_cpp_api_httpbody_protos"
+    " googleapis_cpp_api_label_protos"
+    " googleapis_cpp_api_launch_stage_protos"
+    " googleapis_cpp_api_metric_protos"
+    " googleapis_cpp_api_monitored_resource_protos"
+    " googleapis_cpp_api_resource_protos"
+    " googleapis_cpp_bigtable_protos"
+    " googleapis_cpp_cloud_audit_protos"
+    " googleapis_cpp_cloud_automl_v1beta1_protos"
+    " googleapis_cpp_cloud_bigquery_v2_protos"
+    " googleapis_cpp_cloud_datalabeling_v1beta1_protos"
+    " googleapis_cpp_cloud_kms_v1_protos"
+    " googleapis_cpp_cloud_language_v1_protos"
+    " googleapis_cpp_cloud_location_protos"
+    " googleapis_cpp_cloud_ml_v1_protos"
+    " googleapis_cpp_cloud_oslogin_v1_protos"
+    " googleapis_cpp_cloud_redis_v1_protos"
+    " googleapis_cpp_cloud_runtimeconfig_v1_protos"
+    " googleapis_cpp_cloud_scheduler_v1_protos"
+    " googleapis_cpp_cloud_speech_v1_protos"
+    " googleapis_cpp_cloud_tasks_v2_protos"
+    " googleapis_cpp_cloud_texttospeech_v1_protos"
+    " googleapis_cpp_cloud_translate_v3beta1_protos"
+    " googleapis_cpp_cloud_videointelligence_v1_protos"
+    " googleapis_cpp_cloud_vision_v1_protos"
+    " googleapis_cpp_datastore_v1_protos"
+    " googleapis_cpp_devtools_clouderrorreporting_v1beta1_protos"
+    " googleapis_cpp_devtools_cloudtrace_v2_protos"
+    " googleapis_cpp_iam_v1_policy_protos"
+    " googleapis_cpp_iam_v1_iam_policy_protos"
+    " googleapis_cpp_logging_v2_protos"
+    " googleapis_cpp_longrunning_operations_protos"
+    " googleapis_cpp_monitoring_v3_protos"
+    " googleapis_cpp_pubsub_v1_protos"
+    " googleapis_cpp_rpc_code_protos"
+    " googleapis_cpp_rpc_error_details_protos"
+    " googleapis_cpp_rpc_status_protos"
+    " googleapis_cpp_spanner_protos"
+    " googleapis_cpp_type_color_protos"
+    " googleapis_cpp_type_expr_protos"
+    " googleapis_cpp_type_latlng_protos"
+    " googleapis_cpp_watcher_v1_protos"
+    " grpc++"
+    " grpc"
+    " openssl"
+    " protobuf"
+    " zlib"
+    " libcares")
+
 set(GOOGLE_CLOUD_CPP_PC_LIBS "")
 configure_file("cmake/config.pc.in" "googleapis.pc" @ONLY)
 install(FILES "${CMAKE_CURRENT_BINARY_DIR}/googleapis.pc"
