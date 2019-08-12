@@ -571,8 +571,8 @@ google_cloud_cpp_grpcpp_library(
     PROTO_PATH_DIRECTORIES
     "${GOOGLEAPIS_CPP_SOURCE}"
     "${PROTO_INCLUDE_DIR}")  
-googleapis_cpp_set_version_and_alias(cloud_audit_protos)
-target_link_libraries(googleapis_cpp_cloud_audit_protos
+googleapis_cpp_set_version_and_alias(cloud_automl_v1beta1_protos)
+target_link_libraries(googleapis_cpp_cloud_automl_v1beta1_protos
                       PUBLIC googleapis-c++::api_annotations_protos
 		             googleapis-c++::api_client_protos
 		             googleapis-c++::longrunning_operations_protos
@@ -826,7 +826,7 @@ google_cloud_cpp_grpcpp_library(
 googleapis_cpp_set_version_and_alias(datastore_v1_protos)
 target_link_libraries(googleapis_cpp_datastore_v1_protos
                       PUBLIC googleapis-c++::api_annotations_protos
-                      PUBLIC googleapis-c++::type_latlng_protos
+                             googleapis-c++::type_latlng_protos
 		      PRIVATE googleapis_cpp_common_flags )
 
 
